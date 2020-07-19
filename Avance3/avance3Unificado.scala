@@ -120,6 +120,16 @@ display(dataLoja19.groupBy("rama_actividad").pivot("genero").count().orderBy($"h
 
 // COMMAND ----------
 
+// DBTITLE 1,Area en la que pertencen hombres y mujeres en la provincia de Loja, en el año 2015
+display(dataLoja15.groupBy("area").pivot("genero").count().orderBy($"hombre".desc, $"mujer".desc))
+
+// COMMAND ----------
+
+// DBTITLE 1,Area en la que pertencen hombres y mujeres en la provincia de Loja, en el año 2019
+display(dataLoja19.groupBy("area").pivot("genero").count().orderBy($"hombre".desc, $"mujer".desc))
+
+// COMMAND ----------
+
 // DBTITLE 1,El salario promedio por etnia en la provincia de Loja, en el año 2015
 display(dataLoja15.select($"etnia", $"ingreso_laboral").groupBy("etnia").avg("ingreso_laboral").sort(desc("avg(ingreso_laboral)")))
 
@@ -127,3 +137,7 @@ display(dataLoja15.select($"etnia", $"ingreso_laboral").groupBy("etnia").avg("in
 
 // DBTITLE 1,El salario promedio por etnia en la provincia de Loja, en el año 2019
 display(dataLoja19.select($"etnia", $"ingreso_laboral").groupBy("etnia").avg("ingreso_laboral").sort(desc("avg(ingreso_laboral)")))
+
+// COMMAND ----------
+
+
